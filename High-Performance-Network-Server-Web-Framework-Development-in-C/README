@@ -1,0 +1,53 @@
+first of all add this folder to the examples folder of libhttp-1.8
+then follow below steps
+flask.c file included civetweb.h header file.
+
+To execute flask.c
+just simply do make 
+and then run ./flask <portno> <threads>
+to delete binaries and temporary files do make clean.
+
+As for the experiment no script was used,manually executed for all the levels one by one.
+
+
+Experiment Report
+
+1. Aim/Purpose of the Experiment
+The objective of this experiment is to analyze the performance of the server under varying 
+levels of concurrent requests and thread configurations. 
+This test is carried out on 3 different functions:-
+
+1.arithmetic/fibonacci
+2./square
+3./cube
+
+2. Setup and Execution Details Environment:
+
+Server: Custom web server built with CivetWeb, handling multiple endpoints, including arithmetic/fibonacci.
+Load Generator: Apache Bench (ab) for consistent and repeatable results.
+Thread Configurations Tested:
+1000, 5000, and 10000 Threads
+Concurrent Requests:
+Levels Tested: 10, 20, 30, 40, 50, 60
+Metrics Collected:
+Requests per Second (Throughput)
+3. Hypothesis/Expectation
+Initial Hypothesis: Increasing the number of threads should improve throughput, 
+especially under higher concurrency levels, up to a certain limit. However, at 
+very high thread counts, we might encounter diminishing returns due to CPU and 
+memory limitations or overhead from thread management.
+Expectation by Concurrent Requests: We expect that as the number of concurrent 
+requests increases, the server will handle more requests per second up to a 
+point where the throughput may stabilize or potentially decrease due to resource contention.
+
+4. Observations from the Data/Plots
+
+    Below trends was obsevered for all the 3 cases:-
+
+    Threads = 1000: Throughput increases consistently with concurrency.
+    Threads = 5000: Performance slightly improves compared to 1000 threads, 
+    but throughput fluctuates.
+    Threads = 10000: Throughput generally increases with concurrency, reaching 
+    a peak at 50 concurrent clients, though the highest value is similar to the 1000-thread case.
+
+These fluctuations in the values maybe due to overheads of increased number of threads.
